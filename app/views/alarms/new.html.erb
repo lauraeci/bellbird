@@ -1,0 +1,31 @@
+<p>
+<h1>Create a New Alarm</h1>
+
+<hr/>
+
+<% if @alarm.errors.any? %>
+  <div class="row">
+    <div class="alert alert-danger col-md-8 col-md-offset-2">
+      <h5>Please correct the following errors:</h5>
+      <ul>
+        <% @alarm.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>
+
+<div class="row">
+  <div class="well col-md-8 col-md-offset-2">
+    <%=  form_for(@alarm, html: { multipart: true }) do |f| %>
+
+      <%= f.label :text %>
+      <%= f.text_area :text, rows: 10 %>
+
+      <%= f.submit 'Create Alarm', class: "btn btn-success" %>
+
+    <% end %>
+  </div>
+</div>
+</p>

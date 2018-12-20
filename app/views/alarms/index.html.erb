@@ -1,0 +1,21 @@
+<h1> All Alarms</h1>
+<hr/>
+
+<%= link_to "New Alarm", new_alarm_path() %>
+
+<% @alarms.each do |alarm| %>
+
+  <div class="row">
+    <div class="col-md-2">
+      <section class="author_info center">
+        <h5>Alarm: <%= alarm.text %> </h5>
+      </section>
+    </div>
+    <div class="col-lg-6 well">
+      <ht><%= link_to "Up Vote", new_alarm_vote_path(alarm) %></ht>
+      <p>Votes <%= alarm.votes.count %></p>
+      <p><%= alarm.text %></p>
+    </div>
+  </div>
+  <hr/>
+<% end %>
